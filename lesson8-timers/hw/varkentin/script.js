@@ -46,11 +46,14 @@
    
 }
 console.log(CreateRomNum(createRomNum(54)))  
+<<<<<<< HEAD
+=======
 // ANY CHECK
 // console.log(CreateRomNum(createRomNum(89)))  
 // console.log(CreateRomNum(createRomNum(99))) // IC
 // Отлчно, всё сделано!
 
+>>>>>>> aa840b2c5bd44b1a0078345010c62d7cadfff0eb
 //2 
 function Time () {
    const now = () => {
@@ -72,6 +75,9 @@ function Time () {
    }, 20000)
 }
 
+<<<<<<< HEAD
+Time()
+=======
 // Time()
 // Наверное я неясно написал задание, функция должна содержать массив из времени кажого вызова
 const callTimeCreator = () => {
@@ -86,3 +92,4 @@ const callTimeCreator = () => {
 const callTime = callTimeCreator()
 
 const interval = setInterval( () => {callTime()}, 2000)
+>>>>>>> aa840b2c5bd44b1a0078345010c62d7cadfff0eb
