@@ -1,13 +1,13 @@
-const users = new Map([
-    [{ id: 1, name: 'Anna', bd: '1991-01-01' }, 'user'],
-    [{ id: 2, name: 'Bill', bd: '1990-02-08' }, 'user'],
-    [{ id: 3, name: 'Clint', bd: '1988-10-19' }, 'user'],
-    [{ id: 4, name: 'Den', bd: '1993-08-08' }, 'admin'],
-    [{ id: 5, name: 'Eva', bd: '1990-03-30' }, 'admin'],
-    [{ id: 6, name: 'Fill', bd: '1999-03-30' }, 'user'],
-    [{ id: 7, name: 'Germiona', bd: '1995-02-23' }, 'admin'],
-    [{ id: 8, name: 'Henry', bd: '1992-03-08' }, 'user']
-]);
+// const users = new Map([
+//     [{ id: 1, name: 'Anna', bd: '1991-01-01' }, 'user'],
+//     [{ id: 2, name: 'Bill', bd: '1990-02-08' }, 'user'],
+//     [{ id: 3, name: 'Clint', bd: '1988-10-19' }, 'user'],
+//     [{ id: 4, name: 'Den', bd: '1993-08-08' }, 'admin'],
+//     [{ id: 5, name: 'Eva', bd: '1990-03-30' }, 'admin'],
+//     [{ id: 6, name: 'Fill', bd: '1999-03-30' }, 'user'],
+//     [{ id: 7, name: 'Germiona', bd: '1995-02-23' }, 'admin'],
+//     [{ id: 8, name: 'Henry', bd: '1992-03-08' }, 'user']
+// ]);
 
 function getName() {
     const arrName = [];
@@ -97,3 +97,44 @@ function getBirtDay() {
 }
 
 console.log(getBirtDay())
+
+
+const users = [
+    [{ id: 1, name: "Anna", bd: "1991-01-01" }, "user"],
+    [{ id: 2, name: "Bill", bd: "1990-02-08" }, "user"],
+    [{ id: 3, name: "Clint", bd: "1988-10-19" }, "user"],
+    [{ id: 4, name: "Den", bd: "1993-08-08" }, "admin"],
+    [{ id: 5, name: "Eva", bd: "1990-03-30" }, "admin"],
+    [{ id: 6, name: "Fill", bd: "1999-03-30" }, "user"],
+    [{ id: 7, name: "Germiona", bd: "1995-02-23" }, "admin"],
+    [{ id: 8, name: "Henry", bd: "1992-03-08" }, "user"],
+];
+
+function getZodiac() {
+    const zodiacArr = users.map(item => {
+        const birMonth = new Date(item[0].bd).getMonth() + 1;
+
+        let zod;
+        switch (birMonth) {
+            case 1: zod = 'Козерог'; break;
+            case 2: zod = 'Водолей'; break;
+            case 3: zod = 'Рыбы'; break;
+            case 4: zod = 'Овен'; break;
+            case 5: zod = 'Телец'; break;
+            case 6: zod = 'Близнецы'; break;
+            case 7: zod = 'Рак'; break;
+            case 8: zod = 'Лев'; break;
+            case 9: zod = 'Дева'; break;
+            case 10: zod = 'Весы'; break;
+            case 11: zod = 'Скорпион'; break;
+            default: zod = 'Стрелец';
+        }
+        return [
+            item[0].name,
+            zod
+        ]
+    })
+    return new Map(zodiacArr);
+}
+
+getZodiac()

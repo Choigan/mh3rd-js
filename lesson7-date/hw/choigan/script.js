@@ -14,13 +14,8 @@ const users = new Map([
 ]);
 
 function getNameAndBd(arr) {
-    // const names = [];
-    // const bdMonth = [];
     const usersArr = [];
     arr.forEach((value, key) => {
-
-        // names.push(key.name);
-        // bdMonth.push(new Date(key.bd).getMonth() + 1);
         usersArr.push([key.name, new Date(key.bd).getMonth() + 1])
     });
     return usersArr;
@@ -47,48 +42,42 @@ function getZodiac(arr) {
     return zodiac;
 } // Проверяяем месяц и выводим имя и знак зодиака(Каждому знаку соответствует 1 месяц)
 
-// console.log(getZodiac(getNameAndBd(users)));
+console.log(getZodiac(getNameAndBd(users)));
 
 
 //---------------------------------------------------------------------------------------------
-//   2 ПЕРВОЕ ЗАДАНИЕ!!!
+//   2 ВТОРОЕ ЗАДАНИЕ!!!
 //---------------------------------------------------------------------------------------------
-
-
-// function getBirtDay() {
-//     const birtday = [];
-//     const currentTime = new Date('2023-10-23').getDay()
-//     users.forEach((value, key) => {
-
-//         time = currentTime - new Date(key.bd).getFullYear();
-//         birtday.push(time)
-//     })
-//     return birtday;
-// }
-
-// console.log(getBirtDay())
-function ddd() {
-    const currentMonth = (new Date('2023-10-23').getMonth() + 1);
-    console.log(currentMonth)
-    const currentDay = new Date('2023-10-23').getDate();
-    const newArr = []
-    users.forEach((value, key) => {
-
-        const names = key.name;
-        const month = currentMonth - (new Date(key.bd).getMonth() + 1);
-        const day = currentDay - new Date(key.bd).getDate();
-        if (day < 0) {
-            d = 30 + day;
-            newArr.push([`${names}: ${month} месяцев ${d} дней`]);
-        }
-        else { newArr.push([`${names}: ${month} месяцев ${day} дней`]); }
-
-    })
-    return newArr
+function ddd(collection) {
+    const currentDate = new Date();
+    const print = [];
+    const arrBD = [];
+    const arrPassedBD = [];
+    for (const iterator of collection.keys()) {
+        arrBD.push(iterator.bd)
+        bd = (new Date(iterator.bd).setFullYear(new Date().getFullYear()));
+        passedBD = currentDate - bd;
+        arrPassedBD.push(Math.floor(passedBD / 1000 / 60 / 60 / 24))
+    }
+    for (let index = 0; index < arrBD.length; index++) {
+        print.push(`${arrBD[index]} прошло ${arrPassedBD[index]} дней`)
+    }
+    return print
 }
 
-console.log(ddd());
+console.log(ddd(users));
 
 //---------------------------------------------------------------------------------------------
-//   3 ПЕРВОЕ ЗАДАНИЕ!!!
+//   3 ТРЕТЬЕ ЗАДАНИЕ!!!
 //---------------------------------------------------------------------------------------------
+
+function getSort(collection) {
+    const sort = Array.from(collection.keys()).sort((a, b) => {
+        const dateA = new Date(a.bd);
+        const dateB = new Date(b.bd);
+        return dateB - dateA
+    }).map(user => user.name)
+    return sort
+}
+
+console.log(getSort(users))

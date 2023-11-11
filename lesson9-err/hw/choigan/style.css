@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    max-width: 600px;
+    width: 100vw;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 50px;
+    gap: 15px;
+}
